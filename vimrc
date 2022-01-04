@@ -51,6 +51,8 @@ Plug 'dimasg/vim-mark'                                                 " 标记
 Plug 'ctrlpvim/ctrlp.vim'                                              " 查找文件插件
 Plug 'tpope/vim-fugitive'                                              " git插件
 Plug 'ludovicchabant/vim-gutentags'                                    " 自动生成tag
+Plug 'neoclide/coc.nvim'                                               " LSP插件
+Plug 'liuchengxu/vista.vim'                                            " tag插件
 
 " 延迟插入
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }                 " 目录树插件
@@ -85,6 +87,22 @@ let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 " 禁用 gutentags 自动加载 gtags 数据库的行为
 let g:gutentags_auto_add_gtags_cscope = 0
+
+" coc config
+let g:coc_global_extensions = ['coc-json','coc-css', 'coc-vimlsp']
+
+set hidden
+
+inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() :
+    \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-n>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1] =~# '\s'
+endfunction
 
 " 快捷键
 "

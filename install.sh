@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install global
-if [ ! -f /usr/local/bin/gtags ]
+if [ ! -f /usr/local/bin/gtags ] && [ ! -f /usr/bin/gtags ]
 then
     cd global
     configure

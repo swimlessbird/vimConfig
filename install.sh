@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -f ~/.vim ]
+if [ -f ~/.vim ] || [ -L ~/.vim ]
 then
     mv ~/.vim ~/.vim_bak
 fi

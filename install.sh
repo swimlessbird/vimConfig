@@ -2,7 +2,7 @@
 
 if [ -f ~/.vim ] || [ -L ~/.vim ]
 then
-    mv ~/.vim ~/.vim_bak
+    mv -f ~/.vim ~/.vim_bak
 fi
 ln -s `pwd` ~/.vim
 
